@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZAMOHO | Actualités & activités</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafef7;
+            color: #1e2a2e;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4, .logo a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* header */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.94);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            max-width: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: #1b4d1f;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text a span {
+            color: #d6a41a;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #5c6e5a;
+            margin-top: -4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e2b;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #3b9e3d;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Page hero */
+        .page-hero {
+            background: linear-gradient(135deg, #dbeed0 0%, #c3dfb4 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero h1 {
+            font-size: 2.8rem;
+            color: #1b4d1f;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #2f5633;
+            margin-top: 16px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Actualités */
+        .all-news {
+            padding: 60px 0;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+        .news-article {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.6s forwards;
+            animation-delay: calc(var(--order, 0) * 0.1s);
+        }
+        .news-article:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+        }
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .news-img {
+            flex: 1;
+            min-width: 280px;
+            overflow: hidden;
+        }
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            min-height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .news-article:hover .news-img img {
+            transform: scale(1.03);
+        }
+        .news-content {
+            flex: 2;
+            padding: 24px 24px 24px 0;
+        }
+        .news-date {
+            display: inline-block;
+            background: #eef3ea;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2b6e2e;
+            margin-bottom: 16px;
+        }
+        .news-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #1b4d1f;
+            transition: color 0.3s;
+        }
+        .news-article:hover .news-content h2 {
+            color: #d6a41a;
+        }
+        .news-content p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+            color: #3a5a3c;
+        }
+        .news-content strong {
+            color: #1b4d1f;
+        }
+
+        /* footer */
+        .footer {
+            background: #112e15;
+            color: #cddfc7;
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: #f5c542;
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            color: #cddfc7;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #f5c542;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #2e5433;
+        }
+        ul {
+            list-style: none;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: 0.3s;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .logo-img {
+                height: 35px;
+            }
+            .logo-text a {
+                font-size: 1.4rem;
+            }
+            .news-article {
+                flex-direction: column;
+            }
+            .news-content {
+                padding: 24px;
+            }
+            .news-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img" onerror="this.src='https://placehold.co/50x50?text=Z'">
+                <div class="logo-text">
+                    <a href="index.html"><span>ZAMOHO</span> Agro</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="actualite.html" class="active">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Nos actualités et activités</h1>
+                <p>Retrouvez ici toutes les réalisations et événements organisés par ZAMOHO.</p>
+            </div>
+        </section>
+
+        <section class="all-news">
+            <div class="container">
+                <div class="news-list">
+                    <!-- Article 1 -->
+                    <article class="news-article" style="--order:1">
+                        <div class="news-img">
+                            <img src="PORTE.jpg" alt="Journée paysanne à Ntogonasso" onerror="this.src='https://placehold.co/600x400?text=Journée+paysanne'">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 15 Mars 2025</span>
+                            <h2>Journée paysanne à Ntogonasso</h2>
+                            <p>ZAMOHO a organisé une journée de démonstration sur le site de Ntogonasso, rassemblant plus de 200 producteurs venus des communes environnantes. Les parcelles de démonstration ont permis de présenter les variétés améliorées de maïs Sotubaka, sorgho Toroniou et mil. Les agriculteurs ont pu échanger avec les techniciens sur les itinéraires techniques et poser leurs questions sur la gestion des sols. Cette rencontre a été un franc succès et renforce l'adoption des semences certifiées dans la région.</p>
+                            <p><strong>Impact :</strong> Plusieurs commandes groupées ont été enregistrées et un réseau de 15 nouveaux producteurs a rejoint le dispositif de multiplication.</p>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="news-article" style="--order:2">
+                        <div class="news-img">
+                            <img src="acn.jpeg" alt="Aménagements en courbes de niveau" onerror="this.src='https://placehold.co/600x400?text=ACN'">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 10 Février 2025</span>
+                            <h2>Aménagements en courbes de niveau (ACN)</h2>
+                            <p>Dans le cadre du projet AEDTT 2 de l’ONG AMEDD, ZAMOHO a réalisé 255 courbes de niveau sur 121 hectares dans les cercles de Kita, Kati et Dioïla. Ces aménagements visent à restaurer les sols dégradés, réduire l'érosion et améliorer la rétention d'eau. Les agents de terrain ont été formés aux techniques de nivellement optique (niveaux WILD NK1). Les producteurs bénéficiaires constatent déjà une meilleure infiltration des eaux de pluie.</p>
+                            <p><strong>Prochaines étapes :</strong> Extension à d'autres villages en 2026 avec un volet agroforesterie.</p>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="news-article" style="--order:3">
+                        <div class="news-img">
+                            <img src="cert.jpeg" alt="Certification semences" onerror="this.src='https://placehold.co/600x400?text=Certification+semences'">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 20 Janvier 2025</span>
+                            <h2>Certification de 44 612 tonnes de semences</h2>
+                            <p>ZAMOHO a obtenu la certification officielle pour l'ensemble de sa production 2025-2026 : 30 tonnes produites en interne et 14,612 tonnes mobilisées auprès des coopératives partenaires. Les espèces concernées incluent le maïs (10 variétés), sorgho (5 variétés), mil (3 variétés), niébé (8 variétés), riz, arachide, sésame et soja. Cette certification garantit aux producteurs des semences de haute qualité génétique et sanitaire.</p>
+                            <p>Les semences sont désormais disponibles dans 24 points de vente ruraux et urbains.</p>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="news-article" style="--order:4">
+                        <div class="news-img">
+                            <img src="formation.jpeg" alt="Formation des femmes" onerror="this.src='https://placehold.co/600x400?text=Formation+femmes'">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 05 Décembre 2024</span>
+                            <h2>Formation de 105 femmes au conditionnement</h2>
+                            <p>Dans le cadre de l'autonomisation féminine, ZAMOHO a formé 105 femmes issues de trois groupements locaux aux techniques de nettoyage, tri et conditionnement des semences. Cette initiative soutenue par AfricaRice a permis d'améliorer la qualité des semences tout en créant des revenus pour ces femmes. Des sacs de 5kg et 1kg ont été utilisés pour le maïs, le sorgho, le mil et le niébé.</p>
+                            <p>Un suivi mensuel est assuré pour maintenir les standards de qualité.</p>
+                        </div>
+                    </article>
+
+ <article class="news-article" style="--order:1">
+                        <div class="news-img">
+                            <img src="PORTE.jpg" alt="Journée paysanne à Ntogonasso" onerror="this.src='https://placehold.co/600x400?text=Journée+paysanne'">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 15 Mars 2025</span>
+                            <h2>Journée paysanne à Ntogonasso</h2>
+                            <p>ZAMOHO a organisé une journée de démonstration sur le site de Ntogonasso, rassemblant plus de 200 producteurs venus des communes environnantes. Les parcelles de démonstration ont permis de présenter les variétés améliorées de maïs Sotubaka, sorgho Toroniou et mil. Les agriculteurs ont pu échanger avec les techniciens sur les itinéraires techniques et poser leurs questions sur la gestion des sols. Cette rencontre a été un franc succès et renforce l'adoption des semences certifiées dans la région.</p>
+                            <p><strong>Impact :</strong> Plusieurs commandes groupées ont été enregistrées et un réseau de 15 nouveaux producteurs a rejoint le dispositif de multiplication.</p>
+                        </div>
+                    </article>
+
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>ZAMOHO</h4>
+                    <p>Services agricoles durables au Mali</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="actualite.html">Actualités</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +223 75 25 13 92</p>
+                    <p><i class="fas fa-envelope"></i> contact@zamoho.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZAMOHO – Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+        }
+    </script>
+</body>
+</html>

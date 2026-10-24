@@ -1,0 +1,229 @@
+<!-- service-appui.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAMOHO | Appui-conseil aux producteurs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .appui-intro {
+            background: #f1f8ed;
+            padding: 40px;
+            border-radius: 32px;
+            margin-bottom: 40px;
+        }
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+        .training-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .training-card:hover {
+            transform: translateY(-5px);
+        }
+        .training-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .training-card-content {
+            padding: 20px;
+        }
+        .training-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #1b4d1f;
+        }
+        .testimonial {
+            background: #eef3ea;
+            border-radius: 32px;
+            padding: 32px;
+            margin: 48px 0;
+            font-style: italic;
+            text-align: center;
+        }
+        .testimonial p {
+            font-size: 1.1rem;
+            color: #2f5633;
+        }
+        .testimonial .author {
+            margin-top: 16px;
+            font-weight: 600;
+            color: #d6a41a;
+        }
+        .stats-appui {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            background: #2b6e2e;
+            color: white;
+            border-radius: 32px;
+            padding: 40px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .stats-appui .stat {
+            flex: 1;
+        }
+        .stats-appui .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+        .contact-form-mini {
+            background: white;
+            padding: 32px;
+            border-radius: 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+        .contact-form-mini input, .contact-form-mini textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #cfdec9;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img">
+                <div class="logo-text">
+                    <a href="index.html"><span>ZAMOHO</span> Agro</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="actualite.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Appui-conseil aux producteurs</h1>
+                <p>Formation, accompagnement technique et transfert de compétences pour une agriculture performante et durable</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="appui-intro">
+                <h2>Un accompagnement de proximité</h2>
+                <p>ZAMOHO met à disposition des producteurs une équipe d’agents techniques qualifiés pour les conseiller à chaque étape de leur cycle de production : choix des semences, préparation du sol, semis, fertilisation, protection des cultures, récolte et commercialisation. Nous organisons des formations théoriques et pratiques, des parcelles de démonstration et des visites de suivi personnalisées.</p>
+                <p><strong>Objectif :</strong> améliorer les rendements, réduire les pertes et augmenter les revenus des agriculteurs.</p>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 20px;">Nos modules de formation</h2>
+            <div class="training-grid">
+                <div class="training-card">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Itinéraires techniques">
+                    <div class="training-card-content">
+                        <h3>Itinéraires techniques</h3>
+                        <p>Maîtrise des étapes culturales pour le maïs, sorgho, mil, riz, niébé et arachide.</p>
+                    </div>
+                </div>
+                <div class="training-card">
+                    <img src="sol.jpg" alt="Gestion des sols">
+                    <div class="training-card-content">
+                        <h3>Gestion durable des sols</h3>
+                        <p>Fertilisation organique et minérale, techniques ACN, rotation des cultures.</p>
+                    </div>
+                </div>
+                <div class="training-card">
+                    <img src="protection.png" alt="Protection des cultures">
+                    <div class="training-card-content">
+                        <h3>Protection intégrée</h3>
+                        <p>Reconnaissance des ravageurs, utilisation raisonnée des pesticides, méthodes alternatives.</p>
+                    </div>
+                </div>
+                <div class="training-card">
+                    <img src="siege.jpeg" alt="Post-récolte">
+                    <div class="training-card-content">
+                        <h3>Post-récolte & stockage</h3>
+                        <p>Techniques de récolte, séchage, nettoyage, conditionnement et conservation des grains.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Grâce aux formations de ZAMOHO, j’ai appris à mieux gérer ma parcelle de maïs. Mon rendement a augmenté de 35% en deux campagnes. Le suivi régulier de l’agent technique m’a permis de corriger rapidement mes erreurs."</p>
+                <div class="author">– M. Sékou Diallo, producteur à Koutiala</div>
+            </div>
+
+            <div class="stats-appui">
+                <div class="stat"><span class="number">1002+</span> producteurs formés</div>
+                <div class="stat"><span class="number">15</span> parcelles de démonstration</div>
+                <div class="stat"><span class="number">105</span> femmes formées au conditionnement</div>
+                <div class="stat"><span class="number">50+</span> CBAs accompagnés</div>
+            </div>
+
+            <h2 style="text-align: center;">Nos actions récentes</h2>
+            <ul style="margin: 20px 0 40px; list-style-type: none;">
+                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#2b6e2e;"></i> Organisation d’une journée paysanne à Ntogonasso (200+ participants)</li>
+                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#2b6e2e;"></i> Participation à la bourse nationale des semences avec 50 CBAs</li>
+                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#2b6e2e;"></i> Mise en place de 15 parcelles de démonstration à Koutiala, Sikasso et Bougouni</li>
+                <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color:#2b6e2e;"></i> Formation de 105 femmes au nettoyage et conditionnement des semences (appui AfricaRice)</li>
+            </ul>
+
+            <!-- Formulaire de contact rapide -->
+            <div class="contact-form-mini">
+                <h3>Vous souhaitez bénéficier d’une formation ou d’un suivi technique ?</h3>
+                <form id="appuiForm">
+                    <input type="text" placeholder="Nom complet" required>
+                    <input type="text" placeholder="Localité" required>
+                    <input type="tel" placeholder="Téléphone">
+                    <textarea rows="3" placeholder="Décrivez vos besoins (culture, superficie, problème rencontré...)"></textarea>
+                    <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+                </form>
+                <p style="font-size: 0.8rem; margin-top: 12px;">Un agent ZAMOHO vous contactera sous 48h.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col"><h4>ZAMOHO</h4><p>Solutions agricoles innovantes</p></div>
+                <div class="footer-col"><h4>Liens</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="actualite.html">Actualités</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-phone"></i> +223 75 25 13 92</p><p><i class="fas fa-envelope"></i> contact@zamoho.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 ZAMOHO – Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion simple du formulaire (sans base de données)
+        const form = document.getElementById('appuiForm');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Merci pour votre demande. Un conseiller ZAMOHO vous répondra très rapidement.');
+                form.reset();
+            });
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

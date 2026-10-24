@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZAMOHO | Solutions agricoles durables au Mali</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafef7;
+            color: #1e2a2e;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4, .logo a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* header */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.94);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+        }
+
+        /* Logo avec image */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            max-width: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: #1b4d1f;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text a span {
+            color: #d6a41a;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #5c6e5a;
+            margin-top: -4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e2b;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #3b9e3d;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center 30%;
+            color: #ffffff;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 32px;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            margin: 0 8px;
+        }
+        .btn-primary {
+            background: #f5b042;
+            color: #1e3a1e;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #e09d24;
+            transform: translateY(-3px);
+        }
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: #2b6e2e;
+        }
+
+        /* sections générales */
+        section {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .suptitle {
+            color: #d6a41a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin: 12px 0 16px;
+            color: #1b4d1f;
+        }
+        .section-header p {
+            color: #4a6247;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* about grid */
+        .about-grid {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text, .about-image {
+            flex: 1;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1b4d1f;
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            margin-bottom: 16px;
+        }
+        .mission-brief {
+            background: #eef3ea;
+            padding: 20px;
+            border-radius: 24px;
+            margin-top: 24px;
+        }
+        .mission-brief div {
+            margin-bottom: 12px;
+        }
+        .mission-brief i {
+            color: #d6a41a;
+            width: 32px;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        /* pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .pillar-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+            border: 1px solid #e6f0e2;
+        }
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -12px rgba(43,110,46,0.15);
+        }
+        .pillar-card i {
+            font-size: 2.8rem;
+            color: #3b9e3d;
+            margin-bottom: 20px;
+        }
+        .pillar-card h3 {
+            margin-bottom: 12px;
+        }
+
+        /* stats */
+        .stats {
+            background: #eef3ea;
+        }
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            text-align: center;
+        }
+        .stat-item {
+            flex: 1;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            color: #d6a41a;
+            display: block;
+        }
+        .stat-label {
+            font-weight: 500;
+            color: #2f5633;
+        }
+
+        /* partenaires horizontaux */
+        .partners-grid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 30px;
+            scrollbar-width: thin;
+        }
+        .partner-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 60px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .partner-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #f0f4ec;
+            padding: 4px;
+        }
+
+        /* actualités preview */
+        .news-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin: 40px 0;
+        }
+        .news-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .news-card h3 {
+            padding: 16px 16px 8px;
+            font-size: 1.2rem;
+        }
+        .read-more {
+            display: inline-block;
+            margin: 0 16px 20px;
+            color: #2b6e2e;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* SLIDER HORIZONTAL CIRCULAIRE (équipe) */
+        .team-horizontal-slider {
+            background: #ffffff;
+            padding: 40px 0;
+        }
+        .slider-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            margin: 30px 0 20px;
+            padding-bottom: 15px;
+            scrollbar-width: thin;
+        }
+        .slider-container {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            padding: 10px 20px;
+        }
+        .slider-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: #fafef7;
+            border-radius: 48px;
+            padding: 16px 32px 16px 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            min-width: 380px;
+            border: 1px solid #e2f0da;
+        }
+        .slider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .circle-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid #d6a41a;
+            background: #eef3ea;
+        }
+        .circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-description h3 {
+            font-size: 1.3rem;
+            color: #1b4d1f;
+            margin-bottom: 4px;
+        }
+        .card-description .role {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #d6a41a;
+            background: #fef3e0;
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-bottom: 8px;
+        }
+        .card-description p {
+            font-size: 0.85rem;
+            color: #4a6247;
+            max-width: 240px;
+        }
+        .scroll-hint {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8aa77d;
+            margin-top: 20px;
+        }
+        .scroll-hint i {
+            margin: 0 8px;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: #2b6e2e;
+            color: white;
+            border-radius: 48px 48px 0 0;
+            margin-top: 20px;
+        }
+        .cta .container {
+            padding: 60px 32px;
+        }
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .cta .btn-primary {
+            background: white;
+            color: #2b6e2e;
+        }
+
+        /* footer */
+        .footer {
+            background: #112e15;
+            color: #cddfc7;
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: #f5c542;
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            color: #cddfc7;
+            text-decoration: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #2e5433;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: 0.3s;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .stats-container {
+                flex-direction: column;
+            }
+            .slider-card {
+                min-width: 300px;
+                padding: 12px 20px 12px 12px;
+                gap: 16px;
+            }
+            .circle-img {
+                width: 70px;
+                height: 70px;
+            }
+            .logo-img {
+                height: 35px;
+            }
+            .logo-text a {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img" onerror="this.src='https://placehold.co/50x50?text=Z'">
+                <div class="logo-text">
+                    <a href="index.html"><span></span> ZAMOHO</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="gouvernance.html">Gouvernance</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="actualite.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center 30%;">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Cultivons l'avenir ensemble</h1>
+                <p>ZAMOHO, acteur majeur de la transformation agricole au Mali. Semences certifiées, accompagnement paysan et innovations durables.</p>
+                <div class="hero-btns">
+                    <a href="services.html" class="btn btn-primary">Nos services</a>
+                    <a href="contact.html" class="btn btn-outline">Collaborer</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- À propos intégrée -->
+        <section class="about-home">
+            <div class="container">
+                <div class="section-header">
+                    <span class="suptitle">Qui sommes-nous</span>
+                    <h2>Société de Services Agricoles de Koutiala "ZAMOHO"</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Plus de 10 ans d'expertise</h3>
+                        <p>ZAMOHO (Société Coopérative Simplifiée de Services Agricoles de Koutiala) a été fondée avec une vision claire : améliorer durablement les revenus des producteurs grâce à des semences de qualité, des services de proximité et des pratiques innovantes. Basée à Koutiala, nous intervenons dans les régions de Sikasso et Ségou, zones à fort potentiel agricole.</p>
+                        <p>Notre équipe est composée d’agents permanents qualifiés et d’un réseau de plus de 1 000 producteurs semenciers. Nous formons et accompagnons des groupements de femmes et de jeunes afin de renforcer leurs capacités et de favoriser leur autonomisation économique. Nous proposons également des services de production agricole, d’appui aux opérations post-récolte, de certification et de commercialisation de semences améliorées. À travers ces interventions, nous contribuons à l’amélioration de la productivité, de la qualité des produits et des revenus des producteurs </p>
+                        <div class="mission-brief">
+                            <div><i class="fas fa-bullseye"></i> <strong>Mission :</strong> Offrir des intrants de qualité et un appui technique performant.</div>
+                            <div><i class="fas fa-eye"></i> <strong>Vision :</strong>Le partenaire de confiance offrant des services agricoles favorisant une agriculture intelligente, durable face aux defis du changement climatique.</div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="siege.jpeg" alt="Champs agricoles ZAMOHO">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Piliers -->
+        <section class="pillars">
+            <div class="container">
+                <div class="section-header">
+                    <span class="suptitle">Nos piliers</span>
+                    <h2>Une agriculture résiliente et prospère</h2>
+                </div>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Semences de qualité</h3>
+                        <p>Production et certification de semences améliorées (maïs, sorgho, mil, niébé, riz etc...) pour des rendements optimisés.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Appui aux producteurs</h3>
+                        <p>Renforcement des capacités, parcelles de démonstration et suivi technique personnalisé.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Inclusion & genre</h3>
+                        <p>105 femmes productrices formées en 2025, réseau de revendeuses et accès équitable aux ressources.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <i class="fas fa-globe-africa"></i>
+                        <h3>Conservation des sols</h3>
+                        <p>Aménagements en courbes de niveau (ACN) pour restaurer les terres et préserver l'environnement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chiffres clés -->
+        <section class="stats">
+            <div class="container stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="1002">0</span>
+                    <span class="stat-label">Producteurs semenciers partenaires</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="194">0</span>
+                    <span class="stat-label">Revendeurs actifs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="100">0</span>
+                    <span class="stat-label">Parcelles de démonstration/Ans </span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="2000 ha">0</span>
+                    <span class="stat-label">Hectars amenage en courbes de niveau </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dernières actualités -->
+        <section class="recent-news">
+            <div class="container">
+                <div class="section-header">
+                    <span class="suptitle">Suivez notre actualité</span>
+                    <h2>Activités récentes</h2>
+                </div>
+                <div class="news-preview">
+                    <div class="news-card">
+                        <img src="PORTE.jpg" alt="Parcelle de démonstration">
+                        <h3>Journée paysanne à Ntogonasso</h3>
+                        <p>Plus de 200 producteurs ont participé à la démonstration de variétés améliorées de maïs et sorgho.</p>
+                        <a href="actualite.html#article1" class="read-more">Lire la suite →</a>
+                    </div>
+                    <div class="news-card">
+                        <img src="acn.jpeg" alt="Aménagement ACN">
+                        <h3>255 courbes de niveau réalisées</h3>
+                        <p>Projet AEDTT 2 : restauration des sols sur 121 hectares dans les cercles de Kita, Kati et Dioïla.</p>
+                        <a href="actualite.html#article2" class="read-more">Lire la suite →</a>
+                    </div>
+                    <div class="news-card">
+                        <img src="cert.jpeg" alt="Semences certifiées">
+                        <h3>Certification de 44 tonnes de semences</h3>
+                        <p>Maïs, sorgho, mil, niébé… toutes nos semences répondent aux normes nationales.</p>
+                        <a href="actualite.html#article3" class="read-more">Lire la suite →</a>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="actualite.html" class="btn btn-outline" style="border-color:#2b6e2e; color:#2b6e2e;">Voir toutes les actualités</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partenaires -->
+        <section class="partners">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ils nous font confiance</h2>
+                    <p>Partenariats techniques et institutionnels pour le développement agricole</p>
+                </div>
+
+                <div class="partners-grid">
+                    <div class="partner-item">
+                        <img src="AGRA.webp" alt="AGRA" class="partner-logo" onerror="this.src='https://placehold.co/50x50?text=AGRA'">
+                        <span>AGRA</span>
+                        
+                    </div>
+                    <div class="partner-item">
+                        <img src="wv.webp" alt="WorldVeg" class="partner-logo">
+                        <span>World Vegetable Center</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="ier.webp" alt="IER" class="partner-logo" onerror="this.src='https://placehold.co/50x50?text=IER'">
+                        <span>IER</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="africa.jpg" alt="AfricaRice" class="partner-logo">
+                        <span>AfricaRice</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="assema.jpg" alt="ASSEMA" class="partner-logo">
+                        <span>ASSEMA</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="amedd.png" alt="AMEDD" class="partner-logo" onerror="this.src='https://placehold.co/50x50?text=AMEDD'">
+                        <span>AMEDD</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="https://placehold.co/50x50?text=RIZ" alt="Inter Riz" class="partner-logo">
+                        <span>Interprofession Riz</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="IFDC.webp" alt="Inter Riz" class="partner-logo">
+                        <span>IFDC</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="helvetas.webp" alt="Inter Riz" class="partner-logo">
+                        <span>HELVETAS</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="SNV.webp" alt="Inter Riz" class="partner-logo">
+                        <span>SNV</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDER HORIZONTAL - ÉQUIPE DIRIGEANTE -->
+        <section class="team-horizontal-slider">
+            <div class="container">
+                <div class="section-header">
+                    <span class="suptitle">Notre gouvernance</span>
+                    <h2>Équipe dirigeante</h2>
+                    <p>Faites défiler pour découvrir les membres du conseil d’administration</p>
+                </div>
+                <div class="slider-wrapper">
+                    <div class="slider-container">
+                        <div class="slider-card">
+                            <div class="circle-img">
+                                <img src="awa.jpg" alt="Awa Sogoba" onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+                            </div>
+                            <div class="card-description">
+                                <h3>Awa Sogoba</h3>
+                                <span class="role">Présidente du Conseil</span>
+                                
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <div class="circle-img">
+                                <img src="Kar.jpeg" alt="Karim Malle" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+                            </div>
+                            <div class="card-description">
+                                <h3>Karim Malle</h3>
+                                <span class="role">Directeur Général</span>
+                               
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <div class="circle-img">
+                                <img src="daniel.jpeg" alt="Mamadou Diallo" onerror="this.src='https://randomuser.me/api/portraits/men/45.jpg'">
+                            </div>
+                            <div class="card-description">
+                                <h3>Daniel Sangare</h3>
+                                <span class="role">Responsable Administratif et logistique</span>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <div class="circle-img">
+                                <img src="sita.jpeg" alt="Souleymane Traoré" onerror="this.src='https://randomuser.me/api/portraits/men/22.jpg'">
+                            </div>
+                            <div class="card-description">
+                                <h3>Sitan Sanogo</h3>
+                                <span class="role">Responsable finance/comptabilite</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-hint">
+                    <i class="fas fa-arrow-left"></i> Glissez vers la droite <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appel final -->
+        <section class="cta">
+            <div class="container">
+                <h2>Prêt à booster votre production ?</h2>
+                <p>Contactez notre équipe pour bénéficier de semences certifiées et d’un accompagnement technique de proximité.</p>
+                <a href="contact.html" class="btn btn-primary">Échanger avec ZAMOHO</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>ZAMOHO</h4>
+                    <p>Société de services agricoles basée à Koutiala, dédiée à l'innovation et à la productivité durable au Mali.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="actualite.html">Actualités</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Coordonnées</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Koutiala, Sincina plateau – Mali</p>
+                    <p><i class="fas fa-phone"></i> +223 75 25 13 92</p>
+                    <p><i class="fas fa-envelope"></i> contact@zamoho.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZAMOHO – Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+        }
+
+        // Animate counters
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const animateValue = (el, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                el.innerText = Math.floor(progress * (end - start) + start);
+                if (progress < 1) requestAnimationFrame(step);
+                else el.innerText = end;
+            };
+            requestAnimationFrame(step);
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count'));
+                    if (target && !el.classList.contains('animated')) {
+                        el.classList.add('animated');
+                        animateValue(el, 0, target, 1500);
+                    }
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(el => {
+            if (el.getAttribute('data-count')) observer.observe(el);
+        });
+    </script>
+</body>
+</html> 

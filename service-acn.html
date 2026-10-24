@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZAMOHO | Aménagements en Courbes de Niveau (ACN)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafef7;
+            color: #1e2a2e;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4, .logo a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* header */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.94);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+        }
+
+        /* Logo avec image */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            max-width: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: #1b4d1f;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text a span {
+            color: #d6a41a;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #5c6e5a;
+            margin-top: -4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e2b;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #3b9e3d;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Page hero */
+        .page-hero {
+            background: linear-gradient(105deg, #dbeed0 0%, #c3dfb4 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 2.5rem;
+            color: #1b4d1f;
+        }
+        .page-hero p {
+            color: #2f5633;
+        }
+
+        /* Styles spécifiques ACN */
+        .acn-intro {
+            background: #f1f8ed;
+            padding: 40px;
+            border-radius: 32px;
+            margin: 40px 0;
+        }
+        .acn-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin: 48px 0;
+        }
+        .benefit-card {
+            background: white;
+            padding: 24px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: #2b6e2e;
+            margin-bottom: 16px;
+        }
+        .benefit-card h3 {
+            margin-bottom: 12px;
+            color: #1b4d1f;
+        }
+        .acn-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 48px 0;
+        }
+        .step {
+            flex: 1;
+            min-width: 200px;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 24px;
+            border-left: 4px solid #d6a41a;
+        }
+        .step h3 {
+            color: #1b4d1f;
+            margin-bottom: 12px;
+        }
+        .acn-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 16px;
+            background: white;
+            text-align: center;
+            font-weight: 500;
+            color: #2b6e2e;
+        }
+        .realisation-list {
+            background: #eef3ea;
+            border-radius: 32px;
+            padding: 32px;
+            margin: 48px 0;
+        }
+        .realisation-list ul {
+            list-style: none;
+        }
+        .realisation-list li {
+            margin-bottom: 16px;
+            padding-left: 28px;
+            position: relative;
+        }
+        .realisation-list li:before {
+            content: "✔";
+            color: #2b6e2e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .cta-acn {
+            text-align: center;
+            background: #2b6e2e;
+            color: white;
+            border-radius: 48px;
+            padding: 48px 32px;
+            margin: 40px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background: white;
+            color: #2b6e2e;
+        }
+        .btn-primary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        /* footer */
+        .footer {
+            background: #112e15;
+            color: #cddfc7;
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: #f5c542;
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            color: #cddfc7;
+            text-decoration: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #2e5433;
+        }
+        ul {
+            list-style: none;
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: 0.3s;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .logo-img {
+                height: 35px;
+            }
+            .logo-text a {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img" onerror="this.src='https://placehold.co/50x50?text=Z'">
+                <div class="logo-text">
+                    <a href="index.html"><span>ZAMOHO</span> Agro</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="actualite.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Aménagements en Courbes de Niveau (ACN)</h1>
+                <p>Restaurer les sols, lutter contre l'érosion et améliorer durablement la productivité agricole</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="acn-intro">
+                <h2>Qu'est-ce que l'aménagement en courbes de niveau ?</h2>
+                <p>L’aménagement en courbes de niveau (ACN) est une technique de conservation des eaux et des sols qui consiste à tracer des lignes perpendiculaires à la pente, permettant de ralentir le ruissellement, favoriser l’infiltration de l’eau et réduire l’érosion. ZAMOHO maîtrise cette technique et l’a déployée sur plusieurs centaines d’hectares au Mali.</p>
+                <p><strong>Objectifs :</strong> restaurer les terres dégradées, améliorer la fertilité, augmenter les rendements et préserver l’environnement.</p>
+            </div>
+
+            <div class="acn-benefits">
+                <div class="benefit-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>Rétention d'eau</h3>
+                    <p>Augmente l’infiltration et réduit le ruissellement, améliorant la réserve hydrique des sols.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Lutte anti-érosive</h3>
+                    <p>Prévient le ravinement et la dégradation des terres cultivées.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Rendements accrus</h3>
+                    <p>Les sols mieux conservés et fertilisés produisent jusqu'à 40% de plus.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Restauration écologique</h3>
+                    <p>Favorise la régénération naturelle et la biodiversité des sols.</p>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 20px;">Notre méthodologie</h2>
+            <div class="acn-steps">
+                <div class="step">
+                    <h3>1. Diagnostic</h3>
+                    <p>Étude topographique, analyse des pentes, identification des zones sensibles à l'érosion.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Traçage des courbes</h3>
+                    <p>Utilisation de niveaux optiques (WILD NK1) pour tracer des lignes parfaitement horizontales.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Aménagement</h3>
+                    <p>Création de digues, fossés, cordons pierreux ou végétaux selon le contexte.</p>
+                </div>
+                <div class="step">
+                    <h3>4. Suivi & entretien</h3>
+                    <p>Accompagnement des producteurs pour l’entretien annuel des ouvrages.</p>
+                </div>
+            </div>
+
+            <div class="acn-gallery">
+                <div class="gallery-item">
+                    <img src="ACN2.jpeg" alt="Tracé de courbe de niveau">
+                    <div class="gallery-caption">Tracé avec niveau optique</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="ACN3.jpeg" alt="Digue en courbe de niveau">
+                    <div class="gallery-caption">Digue anti-érosive végétalisée</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="ACN4.jpeg" alt="Champ aménagé">
+                    <div class="gallery-caption">Parcelle après aménagement</div>
+                </div>
+            </div>
+
+            <div class="realisation-list">
+                <h3>Nos réalisations en chiffres</h3>
+                <ul>
+                    <li><strong>255</strong> courbes de niveau réalisées</li>
+                    <li><strong>121 hectares</strong> aménagés dans les cercles de Kita, Kati, Dioïla et Koutiala</li>
+                    <li><strong>Projet AEDTT 2</strong> (AMEDD) : restauration des terres dégradées</li>
+                    <li><strong>Plus de 500 producteurs</strong> formés à la technique ACN</li>
+                    <li><strong>Réduction moyenne du ruissellement : 60%</strong> sur les parcelles traitées</li>
+                </ul>
+            </div>
+
+            <div class="cta-acn">
+                <h2>Vous souhaitez aménager vos terres ?</h2>
+                <p>Contactez-nous pour une étude gratuite et un devis personnalisé.</p>
+                <a href="contact.html" class="btn btn-primary">Demander un aménagement ACN</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col"><h4>ZAMOHO</h4><p>Solutions agricoles innovantes</p></div>
+                <div class="footer-col"><h4>Liens</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="actualite.html">Actualités</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-phone"></i> +223 75 25 13 92</p><p><i class="fas fa-envelope"></i> contact@zamoho.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 ZAMOHO – Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+        }
+    </script>
+</body>
+</html>

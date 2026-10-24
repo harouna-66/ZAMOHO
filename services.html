@@ -1,0 +1,385 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZAMOHO | Services agricoles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafef7;
+            color: #1e2a2e;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4, .logo a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* header */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.94);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+        }
+
+        /* Logo avec image */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            max-width: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: #1b4d1f;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text a span {
+            color: #d6a41a;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #5c6e5a;
+            margin-top: -4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e2b;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #3b9e3d;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Page hero */
+        .page-hero {
+            background: linear-gradient(105deg, #dbeed0 0%, #c3dfb4 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 2.5rem;
+            color: #1b4d1f;
+        }
+        .page-hero p {
+            color: #2f5633;
+        }
+
+        /* Services détaillés */
+        .services-detailed {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin: 60px 0;
+        }
+        .service-detailed-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .service-detailed {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            background: white;
+            padding: 28px;
+            border-radius: 28px;
+            transition: 0.2s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e6f0e2;
+        }
+        .service-detailed:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .service-detailed i {
+            font-size: 2.3rem;
+            color: #3b9e3d;
+            min-width: 60px;
+        }
+        .service-detailed h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #1b4d1f;
+        }
+        .service-detailed p {
+            color: #4a6247;
+        }
+
+        /* CTA light */
+        .cta-light {
+            text-align: center;
+            background: #f1f9ec;
+            color: #1b4d1f;
+            border-radius: 48px;
+            margin: 40px 0;
+        }
+        .cta-light .container {
+            padding: 60px 32px;
+        }
+        .cta-light h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background: #2b6e2e;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1f5422;
+            transform: translateY(-2px);
+        }
+
+        /* footer */
+        .footer {
+            background: #112e15;
+            color: #cddfc7;
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: #f5c542;
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            color: #cddfc7;
+            text-decoration: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #2e5433;
+        }
+        ul {
+            list-style: none;
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: 0.3s;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .service-detailed {
+                flex-direction: column;
+                text-align: center;
+            }
+            .service-detailed i {
+                margin: 0 auto;
+            }
+            .logo-img {
+                height: 35px;
+            }
+            .logo-text a {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img" onerror="this.src='https://placehold.co/50x50?text=Z'">
+                <div class="logo-text">
+                    <a href="index.html"><span>ZAMOHO</span> Agro</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="actualite.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Nos prestations agricoles</h1>
+                <p>Des solutions intégrées pour une agriculture productive et durable</p>
+            </div>
+        </section>
+
+        <section class="services-grid-section">
+            <div class="container">
+                <div class="services-detailed">
+                    <a href="service-semences.html" class="service-detailed-link">
+                        <div class="service-detailed">
+                            <i class="fas fa-certificate"></i>
+                            <div><h3>Production & certification de semences</h3><p>Multiplication de semences de base et de R1, traitement, conditionnement et certification officielle.</p></div>
+                        </div>
+                    </a>
+                    <a href="service-appui.html" class="service-detailed-link">
+                        <div class="service-detailed">
+                            <i class="fas fa-chalkboard-user"></i>
+                            <div><h3>Appui-conseil aux producteurs</h3><p>Formations aux bonnes pratiques agricoles, itinéraires techniques, journées paysannes et démonstrations.</p></div>
+                        </div>
+                    </a>
+                    <a href="service-acn.html" class="service-detailed-link">
+                        <div class="service-detailed">
+                            <i class="fas fa-water"></i>
+                            <div><h3>Aménagements en courbes de niveau (ACN)</h3><p>Conservation des eaux et des sols, restauration des terres dégradées, lutte contre l'érosion.</p></div>
+                        </div>
+                    </a>
+                    <a href="service-mecanisation.html" class="service-detailed-link">
+                        <div class="service-detailed">
+                            <i class="fas fa-tractor"></i>
+                            <div><h3>Mécanisation & équipements</h3><p>Mise à disposition de motoculteurs, batteuses, semoirs, conseils pour une mécanisation adaptée.</p></div>
+                        </div>
+                    </a>
+                    <a href="service-commercialisation.html" class="service-detailed-link">
+                        <div class="service-detailed">
+                            <i class="fas fa-chart-line"></i>
+                            <div><h3>Commercialisation & mise en marché</h3><p>Réseau de points de vente, appui à la commercialisation des céréales, mise en relation avec acheteurs.</p></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-light">
+            <div class="container">
+                <h2>Une équipe à votre écoute</h2>
+                <p>Bénéficiez d’un accompagnement personnalisé, de la semence à la récolte.</p>
+                <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>ZAMOHO</h4>
+                    <p>Solutions agricoles innovantes</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="actualite.html">Actualités</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +223 75 25 13 92</p>
+                    <p><i class="fas fa-envelope"></i> contact@zamoho.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZAMOHO – Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+        }
+    </script>
+</body>
+</html>

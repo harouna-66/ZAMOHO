@@ -1,0 +1,170 @@
+<!-- service-semences.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAMOHO | Production & certification de semences</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Styles spécifiques pour la bibliothèque de semences */
+        .seed-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .seed-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .seed-card:hover {
+            transform: translateY(-5px);
+        }
+        .seed-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .seed-card-content {
+            padding: 20px;
+        }
+        .seed-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #1b4d1f;
+        }
+        .seed-card .variety {
+            font-weight: 600;
+            color: #d6a41a;
+            margin-bottom: 12px;
+        }
+        .seed-card p {
+            color: #4a6247;
+            font-size: 0.9rem;
+        }
+        .service-detail-header {
+            background: #f1f8ed;
+            padding: 40px;
+            border-radius: 32px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img">
+                <div class="logo-text">
+                    <a href="index.html"><span>ZAMOHO</span> Agro</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="actualite.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Production & certification de semences</h1>
+                <p>Des semences de haute qualité génétique pour des rendements optimisés</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="service-detail-header">
+                <h2>Notre savoir-faire semencier</h2>
+                <p>ZAMOHO produit et certifie des semences de base et de première reproduction (R1) pour les principales céréales et légumineuses. Nos équipes assurent le suivi des parcelles, le traitement post-récolte, le conditionnement et l'obtention de la certification officielle. Découvrez ci-dessous notre catalogue de semences améliorées.</p>
+            </div>
+
+            <h2 style="text-align: center; margin-bottom: 20px;">Catalogue des semences certifiées</h2>
+            <div class="seed-gallery">
+                <!-- Maïs Sotubaka -->
+                <div class="seed-card">
+                    <img src="sotubaka.jpg" alt="Maïs Sotubaka">
+                    <div class="seed-card-content">
+                        <h3>Maïs Sotubaka</h3>
+                        <div class="variety">Variété précoce</div>
+                        <p>Rendement élevé, résistant à la sécheresse. Cycle 85 jours. Idéal pour les zones soudaniennes.</p>
+                    </div>
+                </div>
+                <!-- Maïs Soden -->
+                <div class="seed-card">
+                    <img src="soden.jpg" alt="Maïs Soden">
+                    <div class="seed-card-content">
+                        <h3>Maïs Soden</h3>
+                        <div class="variety">Variété intermédiaire</div>
+                        <p>Très productif, bon comportement en post-floraison. Recommandé pour la zone cotonnière.</p>
+                    </div>
+                </div>
+                <!-- Maïs Tcheba -->
+                <div class="seed-card">
+                    <img src="thieba.webp" alt="Maïs Tcheba">
+                    <div class="seed-card-content">
+                        <h3>Maïs Tcheba</h3>
+                        <div class="variety">Variété tardive</div>
+                        <p>Gros potentiel grain, tolérant aux maladies foliaires. Cycle 110 jours.</p>
+                    </div>
+                </div>
+                <!-- Sorgho Toroniou -->
+                <div class="seed-card">
+                    <img src="sorgho.webp">
+                        <h3>Sorgho Toroniou</h3>
+                        <div class="variety">Sorgho grain</div>
+                        <p>Très bon rendement, grains blancs, résistant au charbon et au mildiou.</p>
+                    </div>
+                </div>
+                <!-- Mil Toroniou (ajout) -->
+                <div class="seed-card">
+                    <img src="mil.webp" alt="Mil">
+                    <div class="seed-card-content">
+                        <h3>Mil Toroniou</h3>
+                        <div class="variety">Mil perlé</div>
+                        <p>Cycle court, excellente adaptation aux sols pauvres et aux faibles pluies.</p>
+                    </div>
+                </div>
+                <!-- Niébé (exemple) -->
+                <div class="seed-card">
+                    <img src="niebe.jpg" alt="Niébé">
+                    <div class="seed-card-content">
+                        <h3>Niébé Tiligré</h3>
+                        <div class="variety">Légumineuse</div>
+                        <p>Fixateur d'azote, résistant à la sécheresse, grains blancs appréciés.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin: 48px 0;">
+                <a href="contact.html" class="btn btn-primary">Commander des semences</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col"><h4>ZAMOHO</h4><p>Solutions agricoles innovantes</p></div>
+                <div class="footer-col"><h4>Liens</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="about.html">À propos</a></li><li><a href="services.html">Services</a></li><li><a href="actualite.html">Actualités</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-phone"></i> +223 75 25 13 92</p><p><i class="fas fa-envelope"></i> contact@zamoho.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 ZAMOHO</p></div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

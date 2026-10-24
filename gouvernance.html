@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZAMOHO | Gouvernance & Historique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafef7;
+            color: #1e2a2e;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4, .logo a {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* header */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.94);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            max-width: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: #1b4d1f;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text a span {
+            color: #d6a41a;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #5c6e5a;
+            margin-top: -4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e2b;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #3b9e3d;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero section */
+        .page-hero {
+            background: linear-gradient(135deg, #dbeed0 0%, #c3dfb4 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero h1 {
+            font-size: 2.8rem;
+            color: #1b4d1f;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #2f5633;
+            margin-top: 16px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Timeline historique */
+        .history-section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: #1b4d1f;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #d6a41a;
+            margin: 12px auto 0;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background: #c8e0bc;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.6s forwards;
+            animation-delay: calc(var(--order, 0) * 0.15s);
+        }
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .timeline-year {
+            min-width: 100px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #d6a41a;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .timeline-content {
+            background: white;
+            padding: 20px 28px;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            flex: 1;
+            transition: transform 0.3s;
+        }
+        .timeline-content:hover {
+            transform: translateX(8px);
+        }
+        .timeline-content h3 {
+            color: #1b4d1f;
+            margin-bottom: 8px;
+        }
+
+        /* Équipe dirigeante (gouvernance) */
+        .governance-section {
+            background: #f9fdf7;
+            padding: 60px 0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .team-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s forwards;
+            animation-delay: calc(var(--order, 0) * 0.1s);
+        }
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+        }
+        .team-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: top center;
+            background: #eef3ea;
+        }
+        .team-info {
+            padding: 24px 20px 30px;
+            text-align: center;
+        }
+        .team-info h3 {
+            font-size: 1.5rem;
+            color: #1b4d1f;
+            margin-bottom: 6px;
+        }
+        .team-role {
+            color: #d6a41a;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .team-desc {
+            font-size: 0.9rem;
+            color: #4a6247;
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #112e15;
+            color: #cddfc7;
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: #f5c542;
+            margin-bottom: 16px;
+        }
+        .footer-col a {
+            color: #cddfc7;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #f5c542;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #2e5433;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: 0.3s;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .logo-img {
+                height: 35px;
+            }
+            .logo-text a {
+                font-size: 1.4rem;
+            }
+            .timeline-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .timeline-year {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ZAMOHO" class="logo-img" onerror="this.src='https://placehold.co/50x50?text=Z'">
+                <div class="logo-text">
+                    <a href="index.html"><span>ZAMOHO</span> Agro</a>
+                    <p>Services agricoles · Koutiala</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="actualite.html">Actualités</a></li>
+                    <li><a href="gouvernance.html" class="active">Gouvernance</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Gouvernance & Historique</h1>
+                <p>Découvrez l’histoire de ZAMOHO et les femmes et hommes qui font vivre notre organisation</p>
+            </div>
+        </section>
+
+        <!-- Section historique (timeline) -->
+        <section class="history-section">
+            <div class="container">
+                <h2 class="section-title">Notre parcours depuis 2010</h2>
+                <div class="timeline">
+                    <div class="timeline-item" style="--order:1">
+                        <div class="timeline-year">2010</div>
+                        <div class="timeline-content">
+                            <h3>Fondation de ZAMOHO</h3>
+                            <p>Création de la Société Coopérative Simplifiée de Services Agricoles de Koutiala par 6 cooperants. Objectif : mutualiser les moyens et améliorer la productivité agricole.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--order:2">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-content">
+                            <h3>Premières certifications semences</h3>
+                            <p>Obtention des premières certifications pour les semences de maïs et sorgho. Début du partenariat avec l’IER et AfricaRice.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--order:3">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-content">
+                            <h3>Immatriculation officielle</h3>
+                            <p>Enregistrement au Registre du Commerce et du Crédit Mobilier (RCCM) sous le numéro MA-Kla/2017/C/11/101. Lancement de la vente de pièces de rechange.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--order:4">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h3>Expansion des services ACN</h3>
+                            <p>Déploiement des aménagements en courbes de niveau (ACN) avec l’ONG AMEDD. Plus de 100 hectares restaurés.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" style="--order:5">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3>150 tonnes de semences certifiées</h3>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section gouvernance (équipe dirigeante) -->
+        <section class="governance-section">
+            <div class="container">
+                <h2 class="section-title">Conseil d’administration & direction</h2>
+                <div class="team-grid">
+                    <div class="team-card" style="--order:1">
+                        <img src="awa.jpg" alt="Awa Sogoba" class="team-img" onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+                        <div class="team-info">
+                            <h3>Awa Sogoba</h3>
+                            <div class="team-role">Présidente du Conseil d’Administration</div>
+                            
+                        </div>
+                    </div>
+                    <div class="team-card" style="--order:2">
+                        <img src="Kar.jpeg" alt="Karim Malle" class="team-img" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+                        <div class="team-info">
+                            <h3>Karim Malle</h3>
+                            <div class="team-role">Directeur Général</div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="team-card" style="--order:4">
+                        <img src="daniel.jpeg" alt="Mamadou Diallo" class="team-img" onerror="this.src='https://randomuser.me/api/portraits/men/45.jpg'">
+                        <div class="team-info">
+                            <h3>Daniel Sangare</h3>
+                            <div class="team-role">Responsable Administratif et logistique</div>
+                            
+                        </div>
+                    </div>
+                    <div class="team-card" style="--order:5">
+                        <img src="sita.jpeg" alt="Souleymane Traoré" class="team-img" onerror="this.src='https://randomuser.me/api/portraits/men/22.jpg'">
+                        <div class="team-info">
+                            <h3>Sitan sanogo</h3>
+                            <div class="team-role">Responsable Finance/Comptabilite</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>ZAMOHO</h4>
+                    <p>Société coopérative de services agricoles – Koutiala, Mali</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="actualite.html">Actualités</a></li>
+                        <li><a href="gouvernance.html">Gouvernance</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Koutiala, Sincina plateau</p>
+                    <p><i class="fas fa-phone"></i> +223 75 25 13 92</p>
+                    <p><i class="fas fa-envelope"></i> contact@zamoho.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZAMOHO – Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+        }
+    </script>
+</body>
+</html>
